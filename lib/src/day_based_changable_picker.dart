@@ -148,13 +148,12 @@ class _DayBasedChangeablePickerState<T> extends State<DayBasedChangeablePicker<T
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.datePickerLayoutSettings.monthPickerPortraitWidth,
-      height: widget.datePickerLayoutSettings.maxDayPickerHeight,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 14),
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: widget.datePickerLayoutSettings.dayPickerRowHeight,
+            height: 121,
             child: Padding(
               padding: widget.datePickerLayoutSettings.contentPadding, //match _DayPicker main layout padding
               child: MonthNavigationRow(

@@ -5,11 +5,11 @@ import 'package:flutter/widgets.dart';
 
 // layout defaults
 const Duration _kPageScrollDuration = const Duration(milliseconds: 200);
-const double _kDayPickerRowHeight = 42.0;
+const double _kDayPickerRowHeight = 32.0;
 const int _kMaxDayPickerRowCount = 6; // A 31 day month that starts on Saturday.
 const double _kMonthPickerPortraitWidth = 330.0;
 const EdgeInsetsGeometry _kContentPadding =
-    const EdgeInsets.symmetric(horizontal: 8.0);
+    const EdgeInsets.all(8.0);
 
 class DatePickerLayoutSettings {
   /// Duration for scroll to previous or next page
@@ -26,7 +26,7 @@ class DatePickerLayoutSettings {
   final EdgeInsetsGeometry contentPadding;
 
   SliverGridDelegate get dayPickerGridDelegate =>
-      _DayPickerGridDelegate(dayPickerRowHeight, maxDayPickerRowCount);
+      _DayPickerGridDelegate(dayPickerRowHeight + 8, maxDayPickerRowCount);
 
   // Two extra rows: one for the day-of-week header and one for the month header.
   double get maxDayPickerHeight =>

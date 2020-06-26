@@ -181,10 +181,13 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
         );
 
         if (dayType != DayType.disabled) {
-          dayWidget = GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () => selectablePicker.onDayTapped(dayToBuild),
-            child: dayWidget,
+          dayWidget = Container(
+            margin: const EdgeInsets.all(4.0),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => selectablePicker.onDayTapped(dayToBuild),
+              child: dayWidget,
+            ),
           );
         }
 
@@ -192,20 +195,31 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
       }
     }
 
-    return Padding(
-      padding: datePickerLayoutSettings.contentPadding,
-      child: Column(
-        children: <Widget>[
-          Flexible(
-            child: GridView.custom(
-              physics: datePickerLayoutSettings.scrollPhysics,
-              gridDelegate: datePickerLayoutSettings.dayPickerGridDelegate,
-              childrenDelegate:
-              SliverChildListDelegate(labels, addRepaintBoundaries: false),
-            ),
+    return Container(
+      height: 264,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(4)),
+      ),
+      child: Padding(
+        padding: datePickerLayoutSettings.contentPadding,
+        child: ScrollConfiguration(
+          behavior: NoOverScrollBehavior(),
+          child: GridView.custom(
+            physics: datePickerLayoutSettings.scrollPhysics,
+            gridDelegate: datePickerLayoutSettings.dayPickerGridDelegate,
+            childrenDelegate:
+            SliverChildListDelegate(labels, addRepaintBoundaries: false),
           ),
-        ],
+        ),
       ),
     );
+  }
+}
+
+class NoOverScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
