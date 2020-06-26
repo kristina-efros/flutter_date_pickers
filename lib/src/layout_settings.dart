@@ -9,7 +9,7 @@ const double _kDayPickerRowHeight = 32.0;
 const int _kMaxDayPickerRowCount = 6; // A 31 day month that starts on Saturday.
 const double _kMonthPickerPortraitWidth = 330.0;
 const EdgeInsetsGeometry _kContentPadding =
-    const EdgeInsets.all(8.0);
+    const EdgeInsets.only(left: 8.0, right: 8.0, top: 20);
 
 class DatePickerLayoutSettings {
   /// Duration for scroll to previous or next page

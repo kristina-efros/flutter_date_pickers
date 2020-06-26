@@ -182,7 +182,7 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
 
         if (dayType != DayType.disabled) {
           dayWidget = Container(
-            margin: const EdgeInsets.all(4.0),
+            margin: const EdgeInsets.all(3.0),
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () => selectablePicker.onDayTapped(dayToBuild),

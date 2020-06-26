@@ -33,7 +33,7 @@ mixin CommonDatePickerFunctions {
           child: Center(
               child: Text(
                   weekday,
-                  style: headerStyle.textStyle
+                  style: headerStyle.textStyle.copyWith(fontSize: 16)
               )
           ),
         ),
