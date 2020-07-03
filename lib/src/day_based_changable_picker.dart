@@ -153,7 +153,7 @@ class _DayBasedChangeablePickerState<T> extends State<DayBasedChangeablePicker<T
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: 121,
+            height: 153,
             child: Padding(
               padding: widget.datePickerLayoutSettings.contentPadding, //match _DayPicker main layout padding
               child: MonthNavigationRow(

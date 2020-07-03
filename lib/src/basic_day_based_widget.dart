@@ -162,6 +162,8 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
 
         Widget dayWidget = Container(
           decoration: decoration,
+          padding: const EdgeInsets.only(bottom: 2.5),
+          margin: const EdgeInsets.all(2),
           child: Center(
             child: Semantics(
               // We want the day of month to be spoken first irrespective of the
@@ -181,13 +183,10 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
         );
 
         if (dayType != DayType.disabled) {
-          dayWidget = Container(
-            margin: const EdgeInsets.all(3.0),
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () => selectablePicker.onDayTapped(dayToBuild),
-              child: dayWidget,
-            ),
+          dayWidget = GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => selectablePicker.onDayTapped(dayToBuild),
+            child: dayWidget,
           );
         }
 
@@ -196,7 +195,6 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
     }
 
     return Container(
-      height: 264,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.all(Radius.circular(4)),
@@ -206,6 +204,7 @@ class DayBasedPicker<T> extends StatelessWidget with CommonDatePickerFunctions{
         child: ScrollConfiguration(
           behavior: NoOverScrollBehavior(),
           child: GridView.custom(
+            shrinkWrap: true,
             physics: datePickerLayoutSettings.scrollPhysics,
             gridDelegate: datePickerLayoutSettings.dayPickerGridDelegate,
             childrenDelegate:
