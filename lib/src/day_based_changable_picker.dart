@@ -171,6 +171,7 @@ class _DayBasedChangeablePickerState<T> extends State<DayBasedChangeablePicker<T
                   localizations.formatMonthYear(_currentDisplayedMonthDate),
                   key: widget.datePickerKeys?.selectedPeriodKeys,
                   style: _resultStyles.displayedPeriodTitle,
+                  textAlign: TextAlign.center,
                 ),
                 nextIcon: widget.datePickerStyles.nextIcon,
                 prevIcon: widget.datePickerStyles.prevIcon,
