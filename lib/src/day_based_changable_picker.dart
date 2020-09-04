@@ -22,6 +22,9 @@ class DayBasedChangeablePicker<T> extends StatefulWidget {
   /// Called when the user picks a new T.
   final ValueChanged<T> onChanged;
 
+  /// Called when the user changes month.
+  final ValueChanged<DateTime> onMonthChanged;
+
   /// Called when the error was thrown after user selection.
   final OnSelectionError onSelectionError;
 
@@ -53,6 +56,7 @@ class DayBasedChangeablePicker<T> extends StatefulWidget {
     Key key,
     this.selectedDate,
     this.onChanged,
+    this.onMonthChanged,
     @required this.firstDate,
     @required this.lastDate,
     @required this.datePickerLayoutSettings,
@@ -262,6 +266,7 @@ class _DayBasedChangeablePickerState<T> extends State<DayBasedChangeablePicker<T
       _currentDisplayedMonthDate =
           DatePickerUtils.addMonthsToMonthDate(widget.firstDate, monthPage);
       _nextMonthDate = DatePickerUtils.addMonthsToMonthDate(widget.firstDate, monthPage + 1);
+      widget.onMonthChanged?.call(_currentDisplayedMonthDate);
     });
   }
 }

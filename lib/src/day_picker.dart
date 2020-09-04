@@ -29,6 +29,7 @@ class DayPicker extends StatelessWidget {
       @required this.onChanged,
       @required this.firstDate,
       @required this.lastDate,
+      this.onMonthChanged,
       this.datePickerLayoutSettings = const DatePickerLayoutSettings(),
       this.datePickerStyles,
       this.datePickerKeys,
@@ -49,6 +50,9 @@ class DayPicker extends StatelessWidget {
 
   /// Called when the user picks a day.
   final ValueChanged<DateTime> onChanged;
+
+  /// Called when the user changes month.
+  final ValueChanged<DateTime> onMonthChanged;
 
   /// The earliest date the user is permitted to pick.
   final DateTime firstDate;
@@ -89,6 +93,7 @@ class DayPicker extends StatelessWidget {
       firstDate: firstDate,
       lastDate: lastDate,
       onChanged: onChanged,
+      onMonthChanged: onMonthChanged,
       datePickerLayoutSettings: datePickerLayoutSettings,
       datePickerStyles: datePickerStyles ?? DatePickerStyles(),
       datePickerKeys: datePickerKeys,
